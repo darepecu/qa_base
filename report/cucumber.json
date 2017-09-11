@@ -1,0 +1,90 @@
+[
+  {
+    "uri": "features/functional_features/004_available_loans.feature",
+    "id": "functional---004---available-loans",
+    "keyword": "Feature",
+    "name": "Functional - 004 - Available loans",
+    "description": "",
+    "line": 1,
+    "elements": [
+      {
+        "keyword": "Background",
+        "name": "",
+        "description": "",
+        "line": 3,
+        "type": "background",
+        "before": [
+          {
+            "match": {
+              "location": "features/support/hooks.rb:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11213705
+            }
+          },
+          {
+            "match": {
+              "location": "features/support/hooks.rb:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 488128940
+            }
+          }
+        ]
+      },
+      {
+        "id": "functional---004---available-loans;get-3-available-plans-for-a-loan-application",
+        "keyword": "Scenario",
+        "name": "Get 3 available plans for a loan application",
+        "description": "",
+        "line": 16,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 15
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "\"Maria Bellido\" has navigated to the Available Loans Page",
+            "line": 17,
+            "match": {
+              "location": "features/step_definitions/functional_steps/available_loans_steps.rb:16"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 32813337823
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "a list of available plans should be displayed for her loan application",
+            "line": 18,
+            "match": {
+              "location": "features/step_definitions/functional_steps/available_loans_steps.rb:50"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 552740312
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "features/support/hooks.rb:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 165528044
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,88 @@
+# ========================================
+# # # # # # # default profiles # # # # # #
+# ========================================
+default:                    -p _web_env   -p local_target    -p default_reporting
+jenkins_local:              -p _local_env   -p local_target    -p default_reporting
+jenkins_certi:              -p _certi_env   -p local_target    -p default_reporting
+jenkins_integ:              -p _integ_env   -p local_target    -p default_reporting
+#default:                    -p _local_env   -p local_target   -p e2e_full    -p default_reporting
+#default:                    TARGET=local FIG_NEWTON_FILE=local_env.yml --format html  --out report/<%=Time.now.strftime("%d%m%Y_%H%M%S")%>-testreport.html --format pretty
+
+# ========================================
+# # # # # # # e2e profiles # # # # # # # #
+# ========================================
+# e2e_[loans_env]_[browser_target]_[speed]
+# ========================================
+
+e2e_hostEnv_local_fast:     -p _local_env   -p local_target   -p e2e_fast    -p default_reporting
+e2e_hostEnv_local_full:     -p _local_env   -p local_target   -p e2e_full    -p default_reporting
+e2e_hostEnv_local_slow:     -p _local_env   -p local_target   -p e2e_slow    -p default_reporting
+
+e2e_hostEnv_sauce_fast:     -p _local_env   -p sauce_target   -p e2e_fast    -p default_reporting
+e2e_hostEnv_sauce_full:     -p _local_env   -p sauce_target   -p e2e_full    -p default_reporting
+e2e_hostEnv_sauce_slow:     -p _local_env   -p sauce_target   -p e2e_slow    -p default_reporting
+
+e2e_certEnv_sauce:          -p _certi_env   -p sauce_target   -p e2e_cert    -p default_reporting
+e2e_certEnv_local:          -p _certi_env   -p local_target   -p e2e_cert    -p default_reporting
+
+e2e_ciEnv_sauce_full:       -p _ci_env      -p sauce_target   -p e2e_full    -p ci_reporting
+
+# ========================
+# # # # api profiles # # #
+# ========================
+# api_[loans_env]_[speed]
+# ========================
+
+api_hostEnv_fast:           -p _local_env    -p api_fast    -p default_reporting
+api_hostEnv_full:           -p _local_env    -p api_full    -p default_reporting
+api_hostEnv_slow:           -p _local_env    -p api_slow    -p default_reporting
+
+api_certEnv:                -p _certi_env    -p api_cert    -p default_reporting
+
+api_ciEnv_full:             -p _ci_env       -p api_full    -p ci_reporting
+
+# ===============================================
+# # # # # # # regression profiles # # # # # # # #
+# ===============================================
+# regression_[loans_env]_[speed]
+# ===============================================
+
+regression_hostEnv_local_fast:     -p _local_env   -p local_target   -p e2e_fast   -p api_fast    -p default_reporting
+regression_hostEnv_local_slow:     -p _local_env   -p local_target   -p e2e_slow   -p api_slow    -p default_reporting
+regression_hostEnv_local_full:     -p _local_env   -p local_target   -p e2e_full   -p api_full    -p default_reporting
+
+regression_hostEnv_sauce_fast:     -p _local_env   -p sauce_target   -p e2e_fast   -p api_fast    -p default_reporting
+regression_hostEnv_sauce_slow:     -p _local_env   -p sauce_target   -p e2e_slow   -p api_slow    -p default_reporting
+regression_hostEnv_sauce_full:     -p _local_env   -p sauce_target   -p e2e_full   -p api_full    -p default_reporting
+
+regression_certEnv_sauce:          -p _certi_env   -p sauce_target   -p e2e_cert   -p api_cert    -p default_reporting
+regression_certEnv_local:          -p _certi_env   -p local_target   -p e2e_cert   -p api_cert2    -p default_reporting
+
+regression_ciEnv_sauce_full:       -p _ci_env      -p sauce_target   -p e2e_full   -p api_full    -p ci_reporting
+
+# ===========================================
+# # # # # # # INTERNAL PROFILES # # # # # # #
+# ===========================================
+
+# Testing environments
+_web_env:          FIG_NEWTON_FILE=web_env.yml
+
+# Targets
+local_target:   TARGET=local
+sauce_target:   TARGET=sauce_labs
+
+# tags
+e2e_fast:     --tags @e2e_fast
+e2e_full:     --tags @e2e_ready
+e2e_slow:     --tags @e2e_slow
+e2e_cert:     --tags @e2e_ready  --tags @cert
+
+api_fast:     --tags @api_fast
+api_full:     --tags @api_ready
+api_slow:     --tags @api_slow
+api_cert:     --tags @api_ready --tags @cert
+
+# Reporting
+ci_reporting:         --format junit --out report/ --format pretty
+default_reporting:    --format html  --out report/<%=Time.now.strftime("%d%m%Y_%H%M%S")%>-testreport.html --format pretty
+cucumber_reporting:   --format pretty --format json --out report/cucumber.json

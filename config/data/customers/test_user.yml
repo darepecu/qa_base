@@ -1,0 +1,65 @@
+first_name: Test
+last_name: User
+dni: '07826006' #'44577767'
+amount: '20,000'
+currency: Soles
+card: '4557886000025164'
+pin6: '111111'
+email: cdiaz@brainhousesolutions.com
+phone: '988072155'
+marital_status: Soltero
+paydate: '28'
+address: Av. Los Alamos 123
+department: LIMA
+province: LIMA
+district: BREÑA
+number_of_available_loans: 3
+preferred_loan: 1
+pdh: false
+gremio: false
+delivery_method: Por E-mail
+chosen_TCEA: '9.3'
+payment_method: Con cobro automático
+deposit_in: 1
+#For API:
+depositAccountNumber: '1941492326098'
+depositAccountType: '004'
+paymentAccountNumber: '1941492326098'
+paymentAccountType: '004'
+accountBalanceShippingMethod : 'email'
+paymentMethod: 'auto'
+selectedPlan: 'ID1'
+
+lead_limit: 40000
+
+#12 meses -> 8000 | 24 -> 15000 | 36 -> 20000 | 48 -> 30000 | 60 -> 40000
+
+
+available_loans:
+  -
+    option: 'OPCIÓN 1'
+    #monthly_fee: 'S/ 256. 22'
+    number_of_fees: '36'
+    rate: '8.22%'
+    #total_payment: 'S/9,223.91'
+  -
+    option: 'OPCIÓN 2'
+    #monthly_fee: 'S/ 200. 61'
+    number_of_fees: '48'
+    rate: '8.22%'
+    #total_payment: 'S/9,629.28'
+  -
+    option: 'OPCIÓN 2'
+    #monthly_fee: 'S/ 200. 61'
+    number_of_fees: '60'
+    rate: '8.22%'
+    #total_payment: 'S/9,629.28'
+
+incomes:
+  -
+    work_type: Dependiente
+    work_place: Banco de Crédito del Perú
+    work_category: Telecomunicaciones
+    work_since_month: Marzo
+    work_since_year: '2015'
+    gross_income: '3000'
