@@ -9,6 +9,7 @@ When(/^he searches for "([^"]*)"$/) do |query|
   on(Google_Page).submit
 end
 
-Then(/^System should display "([^"]*)" as result$/) do |arg|
-  sleep 10
+Then(/^System should display "([^"]*)" as result$/) do |title|
+  on(Google_Page_Results).loaded?.should be true
+  on(Google_Page_Results).page_should_contains(title)
 end

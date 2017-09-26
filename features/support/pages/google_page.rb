@@ -4,7 +4,7 @@ class Google_Page
   page_url FigNewton.base_url
 
   text_field(:search_field, :id => 'lst-ib')
-  button(:buscar, :xpath => "//input[@name='btnK']")
+  button(:buscar, :xpath => "//input[@class='lsb'][@value='Buscar con Google']")
   button(:con_suerte, :xpath => "//input[@name='btnI']")
 
   def loaded?
@@ -24,9 +24,7 @@ class Google_Page
   end
 
   def submit
-    if buscar_element.enabled?
       buscar
-    end
   end
 
 end

@@ -9,8 +9,8 @@ Feature: Functional - 001 - Ask for a Loan
     Then System should display "<page_title>" as result
 
     Examples:
-      | search_argument | page_title  |
-      | 500    | 02 de cada mes     |
-      | 40000  | 15 de cada mes     |
-      | 250000 | 28 de cada mes     |
+      | search_argument | page_title                                  |
+      | bcp             | Vía BCP                                     |
+      | interbank       | Interbank: El tiempo vale más que el dinero |
+      | continental     | BBVA Continental: Bienvenido a su banco     |
 

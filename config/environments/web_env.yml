@@ -1,2 +1,2 @@
 base_url: http://www.google.com/
-api_url: http://localhost/api/
+api_url: http://eva0-public-integration-1825226075.us-west-2.elb.amazonaws.com/api/
