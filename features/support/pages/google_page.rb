@@ -5,14 +5,14 @@ class Google_Page
 
   text_field(:search_field, :id => 'lst-ib')
   button(:buscar, :xpath => "//input[@class='lsb'][@value='Buscar con Google']")
-  button(:con_suerte, :xpath => "//input[@name='btnI']")
+  button(:con_suerte, :xpath => "//input[@class='lsb'][@value='Voy a tener suerte']")
 
   def loaded?
     begin
       Watir::Wait.until {
         search_field_element.exists?
-        true
       }
+      true
     rescue => error
       puts error.to_s
       false
@@ -24,7 +24,13 @@ class Google_Page
   end
 
   def submit
-      buscar
+    sleep 1
+    buscar
+  end
+
+  def feel_lucky
+    sleep 1
+    con_suerte
   end
 
 end

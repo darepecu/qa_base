@@ -7,8 +7,8 @@ class Google_Page_Results
     begin
       Watir::Wait.until {
         filter_container_element.exists?
-        true
       }
+      true
     rescue => error
       puts error.to_s
       false
