@@ -1,0 +1,13 @@
+teachers:
+  -
+    first_name: Pedro
+    last_name: Cabello
+    second_last_name: Narvaez
+    document_id: 41641498
+    code: D101
+  -
+    first_name: Victor
+    last_name: Robles
+    second_last_name: Fernández
+    document_id: 08931527
+    code: D102

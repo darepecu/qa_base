@@ -1,2 +1,7 @@
 base_url: http://www.google.com/
 api_url: http://eva0-public-integration-1825226075.us-west-2.elb.amazonaws.com/api/
+db_host: '127.0.0.1'
+db_port: '3306'
+db_name: 'testdb'
+db_user: 'root'
+db_password: 'qwer1234'

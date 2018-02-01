@@ -2,11 +2,24 @@ module Data_Access
 
   def self.load
     begin
-      customers_list = get_users_from_directory("#{Dir.pwd}/config/data/customers/*.yml")
+      students_list = get_data_from_directory("#{Dir.pwd}/config/data/customers/*_user.yml")
       @@data = {}
-      @@data[:users] = customers_list
-      @@data[:users].each do |user|
-        symbolize!(user)
+      @@data[:students] = students_list
+      @@data[:students].each do |student|
+        symbolize!(student)
+      end
+
+
+      courses_list = get_data_from_directory("#{Dir.pwd}/config/data/customers/courses.yml")
+      @@data[:courses] = courses_list.first['courses']
+      @@data[:courses].each do |course|
+        symbolize!(course)
+      end
+
+      teachers_list = get_data_from_directory("#{Dir.pwd}/config/data/customers/teachers.yml")
+      @@data[:teachers] = teachers_list.first['teachers']
+      @@data[:teachers].each do |teacher|
+        symbolize!(teacher)
       end
 
       true
@@ -37,7 +50,7 @@ module Data_Access
 
   end
 
-  def self.get_users_from_directory(directory)
+  def self.get_data_from_directory(directory)
     user_files_list = Dir[directory]
     users_list = []
     user_files_list.each do |user_file_name|
@@ -50,7 +63,30 @@ module Data_Access
   end
 
   def self.get_user(user_name)
-    @@data[:users].select { |user| "#{user[:first_name]} #{user[:last_name]}" == user_name }.first
+    @@data[:students].select { |user| "#{user[:first_name]} #{user[:last_name]}" == user_name }.first
   end
+
+
+  def self.get_courses
+    @@data[:courses]
+  end
+
+  def self.get_teachers
+    @@data[:teachers]
+  end
+
+  def self.get_students
+    @@data[:students]
+  end
+
+  def self.get_teacher(teacher_name)
+    @@data[:teachers].select { |teacher| teacher[:first_name]  == teacher_name }.first
+  end
+
+  def self.get_course(course_name)
+    @@data[:courses].select {|course| course[:name] == course_name}.first
+  end
+
+
 
 end

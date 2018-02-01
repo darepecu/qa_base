@@ -1,3 +1,11 @@
-first_name: Test
-last_name: User
-dni: '07826006'
+first_name: Manuel
+last_name: Valladares
+second_last_name: Del Carpio
+code: s1001
+sex: masculino
+address: vive por acá
+document_id: '07826006'
+grade: secundaria
+
+
+
