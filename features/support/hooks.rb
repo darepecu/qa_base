@@ -1,5 +1,6 @@
 require 'watir'
 require 'watir-scroll'
+require 'active_record'
 
 Before do
   Data_Access::load
@@ -8,6 +9,8 @@ end
 
 #Before('@api_ready') do
 Before('@api') do
+    clean_database
+    create_full_data
     @scenario_session.base_path = FigNewton.api_url
 end
 

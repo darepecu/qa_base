@@ -1,0 +1,19 @@
+courses:
+  -
+    name: RAZONAMIENTO MATEMÁTICO
+    code: C001
+    description: Temas de índole numérico
+    teacher: Pedro
+    students:
+    -
+      first_name: Manuel
+    -
+      first_name: Carlos
+  -
+    name: RAZONAMIENTO VERBAL
+    code: C002
+    description: Temas relaticos a las letras
+    teacher: Victor
+    students:
+    -
+      first_name: Manuel
